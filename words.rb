@@ -1,0 +1,21 @@
+WORDS = {
+  '鰐': ['わに', 'alligator'],
+  '野球': ['やきゅう', 'baseball'],
+  '窓': ['まど', 'window'],
+  '歯': ['は', 'tooth'],
+  '歯ブラシ': ['はブラシ', 'toothbrush'],
+  '靴': ['くつ', 'footwear'],
+  '長靴': ['ながぐつ', 'boots'],
+  '太陽': ['たいよう', 'sun'],
+  '魚': ['さかな', 'fish'],
+  '亀': ['かめ', 'turtle'],
+  '蟻': ['あり', 'ant'],
+  '栗鼠': ['りす', 'squirrel'],
+  '羊': ['ひつじ', 'sheep'],
+  '虹': ['にじ', 'rainbow'],
+  '蝶': ['ちょう', 'butterfly'],
+  '自覚': ['じかく', 'self-consciousness'],
+  '茸': ['きのこ', 'mushroom'],
+  '苺': ['いちご', 'strawberry'],
+  '蛍': ['ほたる', 'firefly']
+}
