@@ -1,3 +1,6 @@
 # frozen_string_literal: true
 
-gem 'capybara/poltergeist'
+source 'https://rubygems.org'
+
+gem 'poltergeist'
+gem 'rubocop'

@@ -46,5 +46,14 @@ WORDS = {
   '野原': %w[のはら field],
   '鳥': %w[とり bird],
   'コアラ': %w[こあら koala],
-  'お化け': %w[おばけ ghost]
+  'お化け': %w[おばけ ghost],
+  '友達': %w[ともだち friend],
+  '試験': %w[しけん exam],
+  '明日': %w[あした tomorrow],
+  '私': %w[わたし myself],
+  '誰': %w[れ who],
+  '静か': %w[しずか quiet],
+  '親切': %w[しんせつ kind],
+  '好き': %w[すき like],
+  '野菜': %w[やさい vegetables]
 }.freeze
