@@ -55,5 +55,7 @@ WORDS = {
   '静か': %w[しずか quiet],
   '親切': %w[しんせつ kind],
   '好き': %w[すき like],
-  '野菜': %w[やさい vegetables]
+  '野菜': %w[やさい vegetables],
+  '切符': %w[きっぷ ticket],
+  '飛行機': %w[ひこうき airplane]
 }.freeze
