@@ -25,9 +25,23 @@ end.parse!
 translate = CGI.escape(ARGV.join(' '))
 exit if translate.empty?
 
-session = Capybara::Session.new(:poltergeist)
-session.visit(
-  "https://translate.google.com/#auto/#{options[:locale]}/#{translate}"
-)
+retries = 3
 
-puts session.first('span#result_box').text
+begin
+  session = Capybara::Session.new(:poltergeist)
+  session.visit(
+    "https://translate.google.com/#auto/#{options[:locale]}/#{translate}"
+  )
+
+  text = session.first('span#result_box').text
+
+  raise if text.empty?
+
+  puts text
+rescue StandardError
+  unless retries.zero?
+    retries -= 1
+    puts 'Retrying...'
+    retry
+  end
+end
