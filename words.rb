@@ -57,5 +57,6 @@ WORDS = {
   '好き': %w[すき like],
   '野菜': %w[やさい vegetables],
   '切符': %w[きっぷ ticket],
-  '飛行機': %w[ひこうき airplane]
+  '飛行機': %w[ひこうき airplane],
+  '家': %w(いえ home)
 }.freeze
