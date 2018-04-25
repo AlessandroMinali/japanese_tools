@@ -28,7 +28,9 @@ class Practice
   def initialize(selection, quick: nil)
     @selection = selection.to_a.shuffle!
     @selection = @selection [0...(rand(@selection.length))] if quick
-    puts "Practice set for #{@selection.count} hiragana is ready!"
+    @count = @selection.count
+    @score = 0
+    puts "Practice set for #{@count} hiragana is ready!"
   end
 
   def write_char
@@ -42,7 +44,7 @@ class Practice
   def guess_char
     hiragana, english = next!
     print "In english write: #{hiragana}"
-    gets.chomp
+    @score += 1 if english == gets.chomp
     puts "Answer: #{english}"
     puts
   end
@@ -52,6 +54,9 @@ class Practice
   def next!
     if @selection.empty?
       puts 'Practice set complete!'
+      unless @score.zero?
+        puts "#{(@score.to_f / @count).round(1) * 100}% correct!"
+      end
       exit
     end
 
