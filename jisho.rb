@@ -8,7 +8,7 @@ require 'json'
 translate = CGI.escape(ARGV.join(' '))
 exit if translate.empty?
 
-uri = URI("http://jisho.org/api/v1/search/words?keyword=#{translate}")
+uri = URI("https://jisho.org/api/v1/search/words?keyword=#{translate}")
 res = Net::HTTP.get(uri)
 
 entry = JSON.parse(res)['data'][0]
