@@ -33,7 +33,7 @@ begin
     "https://translate.google.com/#auto/#{options[:locale]}/#{translate}"
   )
 
-  text = session.first('span#result_box').text
+  text = session.first('span.translation').text
 
   raise if text.empty?
 
