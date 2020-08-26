@@ -54,6 +54,3 @@ PLATFORMS
 DEPENDENCIES
   poltergeist
   rubocop
-
-BUNDLED WITH
-   1.16.6
