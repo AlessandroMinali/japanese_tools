@@ -27,7 +27,7 @@ DIACRITICS = { 'ガ': 'ga', 'ギ': 'gi', 'グ': 'gu', 'ゲ': 'ge', 'ゴ': 'go',
 class Practice
   def initialize(selection, quick: nil)
     @selection = selection.to_a.shuffle!
-    @selection = @selection [0...(rand(@selection.length))] if quick
+    @selection = @selection[0...(rand(@selection.length))] if quick
     @count = @selection.count
     @score = 0
     puts "Practice set for #{@count} katakana is ready!"
@@ -54,9 +54,7 @@ class Practice
   def next!
     if @selection.empty?
       puts 'Practice set complete!'
-      unless @score.zero?
-        puts "#{(@score.to_f / @count).round(1) * 100}% correct!"
-      end
+      puts "#{(@score.to_f / @count).round(1) * 100}% correct!" unless @score.zero?
       exit
     end
 

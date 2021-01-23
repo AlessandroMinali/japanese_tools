@@ -16,7 +16,7 @@ WORDS = {
   '羊': %w[ひつじ sheep],
   '虹': %w[にじ rainbow],
   '蝶': %w[ちょう butterfly],
-  '自覚': ['じかく', 'self-consciousness'],
+  '自覚': %w[じかく self-consciousness],
   '茸': %w[きのこ mushroom],
   '苺': %w[いちご strawberry],
   '蛍': %w[ほたる firefly],

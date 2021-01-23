@@ -1,13 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# INSTALLATION:
-#  brew install phantomjs
-#  gem install poltergeist
-
 require 'optparse'
 require 'cgi'
-require 'capybara/poltergeist'
+require 'capybara/apparition'
 
 options = {}
 OptionParser.new do |opts|
@@ -27,13 +23,15 @@ exit if translate.empty?
 
 retries = 3
 
-begin
-  session = Capybara::Session.new(:poltergeist)
-  session.visit(
-    "https://translate.google.com/#auto/#{options[:locale]}/#{translate}"
-  )
+Capybara.register_driver :apparition do |app|
+  Capybara::Apparition::Driver.new(app, browser_logger: nil)
+end
 
-  text = session.first('span.translation').text
+begin
+  session = Capybara::Session.new(:apparition)
+  session.visit("https://translate.google.com/?sl=auto&tl=#{options[:locale]}&text=#{translate}")
+  # prone to break in the future ...
+  text = session.find_all('span[jsname][jsaction]:not([class]):not([jscontroller])')[1].text
 
   raise if text.empty?
 

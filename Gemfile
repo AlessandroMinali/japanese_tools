@@ -2,5 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'poltergeist'
+ruby '3.0.0'
+
+gem 'apparition'
 gem 'rubocop'
