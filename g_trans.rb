@@ -16,6 +16,9 @@ OptionParser.new do |opts|
   opts.on('-k', '--korean', 'to Korean') do |_k|
     options[:locale] = 'ko'
   end
+  opts.on('-s', '--spanish', 'to Spanish') do |_k|
+    options[:locale] = 'es'
+  end
 end.parse!
 
 translate = CGI.escape(ARGV.join(' '))
