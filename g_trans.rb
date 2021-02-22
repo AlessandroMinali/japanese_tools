@@ -35,7 +35,9 @@ begin
   session.visit("https://translate.google.com/?sl=auto&tl=#{options[:locale]}&text=#{translate}")
   sleep(0.5)
   # prone to break in the future ...
-  text = session.find_all('span[jsname][jsaction]:not([class]):not([jscontroller])')[1].text
+  text = session.find_all('span[jsname][jsaction]:not([class]):not([jscontroller])').map(&:text)
+                                                                                    .join(' ')
+                                                                                    .strip
 
   puts text
 rescue StandardError
