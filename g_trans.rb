@@ -33,12 +33,16 @@ end
 begin
   session = Capybara::Session.new(:apparition)
   session.visit("https://translate.google.com/?sl=auto&tl=#{options[:locale]}&text=#{translate}")
-  sleep(0.5)
-  # prone to break in the future ...
-  text = session.find_all('span[jsname][jsaction]:not([class]):not([jscontroller])').map(&:text)
-                                                                                    .join(' ')
-                                                                                    .strip
 
+  text = nil
+  5.times do
+    text = session
+           .find_all('span[jsname][jsaction]:not([class]):not([jscontroller])')
+           .map(&:text)
+           .join(' ')
+           .strip
+    break unless text.empty?
+  end
   puts text
 rescue StandardError
   unless retries.zero?
